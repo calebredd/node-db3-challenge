@@ -24,7 +24,7 @@ function findSteps(id) {
   return db("schemes")
     .join("steps", "steps.scheme_id", "schemes.id")
     .select("steps.step_number", "steps.instructions")
-    .where("schemes.id", id);
+    .where("schemes.id", id).orderBy('steps.step_number');
 }
 // function addStep(stepData, id) {
 //   return db("steps").insert(stepData);
